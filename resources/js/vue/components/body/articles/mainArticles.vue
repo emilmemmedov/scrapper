@@ -1,24 +1,49 @@
 <template>
     <div class="articles">
-        <table class="article_table">
-            <tbody v-for="(article, index) in articles" :key="index">
-                <tr>
-                    <single-article
-                        :article="article"
-                    />
-                </tr>
-            </tbody>
-        </table>
+        <data-table v-bind="bindings" @actionTriggered="handleAction"/>
     </div>
 </template>
 
 <script>
-    import singleArticle from "./singleArticle";
+    import DataTable from "@andresouzaabreu/vue-data-table";
+    import Vue from "vue";
+    Vue.component("data-table", DataTable);
+
+    import "../../../../../css/bootstrap.min.css";
+    import "@andresouzaabreu/vue-data-table/dist/DataTable.css";
+    import ArticleActionButtons from "./articleActionButtons";
 
     export default {
         name: "mainArticles",
-        components: {
-            singleArticle
+        computed: {
+            bindings(){
+                return{
+                    columns: [
+                        {
+                            'key': 'id',
+                        },
+                        {
+                            'key': 'title',
+                        },
+                        {
+                            'key': 'link',
+                        },
+                        {
+                            'key': 'points',
+                        },
+                        {
+                            'key': 'creation_date',
+                        },
+                        {
+                            'key': 'actions',
+                            'title': 'Actions',
+                            'component': ArticleActionButtons
+                        }
+                    ],
+                    data: this.articles,
+                    actionMode: "single",
+                }
+            }
         },
         data: function (){
             return {
@@ -33,6 +58,10 @@
                 }).catch(error =>{
                     console.log(error);
                 })
+            },
+            handleAction(actionName, data) {
+                console.log(actionName, data);
+                window.alert("check out the console to see the logs");
             }
         },
         created() {

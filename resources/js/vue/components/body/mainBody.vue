@@ -1,5 +1,6 @@
 <template>
     <div class = "body">
+        <p class="heading">Articles</p>
         <main-articles />
     </div>
 </template>
@@ -16,5 +17,9 @@ export default {
 </script>
 
 <style scoped>
-
+.heading {
+    font-size: 50px;
+    display: block;
+    text-align: center;
+}
 </style>
