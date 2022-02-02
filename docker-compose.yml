@@ -20,7 +20,7 @@ services:
             - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
         networks:
             - app-network
-
+        entrypoint: ./init.sh
     #Nginx Service
     webserver:
         image: nginx:alpine
