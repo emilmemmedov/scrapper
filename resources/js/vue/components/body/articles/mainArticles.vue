@@ -52,7 +52,7 @@
         },
         methods: {
             getArticles (){
-                axios.get('http://localhost:8000/api/article').then(response=>{
+                axios.get(process.env.MIX_APP_URL + ':' + process.env.MIX_APP_PORT + '/api/article').then(response=>{
                     this.articles = response.data.content;
                 }).catch(error =>{
                     console.log(error);
