@@ -12,7 +12,7 @@ class ScrapperCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'scrapper:run {--link=}';
+    protected $signature = 'scrapper:run {--link=https://news.ycombinator.com/}';
 
     /**
      * The console command description.
