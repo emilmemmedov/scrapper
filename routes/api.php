@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'article'], function ($app){
     $app->get('/', [ArticleController::class, 'index']);
+    $app->put('/{id}', [ArticleController::class, 'update']);
 });

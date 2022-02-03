@@ -1,6 +1,6 @@
 <template>
     <div class="articles">
-        <data-table v-bind="bindings" @actionTriggered="handleAction"/>
+        <data-table v-bind="bindings"/>
     </div>
 </template>
 
@@ -53,16 +53,11 @@
         methods: {
             getArticles (){
                 axios.get('http://localhost:8000/api/article').then(response=>{
-                    this.articles = response.data;
-                    console.log(this.articles);
+                    this.articles = response.data.content;
                 }).catch(error =>{
                     console.log(error);
                 })
             },
-            handleAction(actionName, data) {
-                console.log(actionName, data);
-                window.alert("check out the console to see the logs");
-            }
         },
         created() {
             this.getArticles();

@@ -7,16 +7,18 @@
 </template>
 
 <script>
+import articleEditModal from "./articleEditModal";
+
 export default {
     name: "articleActionButtons",
     methods: {
         handleAction(actionName) {
-            /* when the user clicks a button, that will trigger a mutation on our Vuex store
-            The mutation may show a form for editing a resource, or maybe a popup box asking
-            the user to confirm deleting a resource, or open a new page for the user to view
-            a resource.
-             */
-            console.log(actionName);
+            this.$modal.show(
+                articleEditModal,
+                {
+                    data: this.data
+                }
+            );
         }
     },
     props: {
