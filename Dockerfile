@@ -41,4 +41,4 @@ RUN chmod -R ug+w /var/www/storage
 EXPOSE 9000
 CMD ["php-fpm"]
 CMD bash ./docker-entrypoint.sh
-#USER $user
+USER $user
