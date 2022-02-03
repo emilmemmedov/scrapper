@@ -20,7 +20,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
   # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
   # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -41,4 +40,5 @@ RUN chmod -R ug+w /var/www/storage
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
-USER $user
+CMD bash ./docker-entrypoint.sh
+#USER $user
