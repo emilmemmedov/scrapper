@@ -1,6 +1,8 @@
 <h1>Initial Setup </h1>
 
-<p>    1. docker-compose up -d --build </p>
+<p>    1. cp .env.example .env </p>
+<p>    2. docker-compose up -d --build </p>
+<p>    3. docker-compose exec app composer install </p>
 <p>    2. docker-compose exec app php artisan migrate </p>
 
 
