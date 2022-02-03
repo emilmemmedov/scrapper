@@ -1,9 +1,10 @@
 <h1>Initial Setup </h1>
 
 <p>    1. cp .env.example .env </p>
-<p>    2. docker-compose up -d --build </p>
-<p>    3. docker-compose exec app composer install </p>
-<p>    2. docker-compose exec app php artisan migrate </p>
+<p>    2. composer install </p>
+<p>    3. npm install </p>
+<p>    4. docker-compose up -d --build </p>
+<p>    5. docker-compose exec app php artisan migrate </p>
 
 
 <h1>Usage </h1>
